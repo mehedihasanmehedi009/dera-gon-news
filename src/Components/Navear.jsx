@@ -1,10 +1,10 @@
 import React from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import Img from "../../src/assets/user.png";
 
 const Navear = () => {
   return (
-    <div className="flex justify-between  items-center">
+    <div className="flex justify-between  mx-auto  items-center p-7">
       <div className=""></div>
       <div className="nav flex gap-5 text-accent">
         <NavLink to="/">Home</NavLink>
@@ -13,7 +13,9 @@ const Navear = () => {
       </div>
       <div className=" flex gap-3">
         <img src={Img} alt="" />
-        <button className="btn btn-primary px-10">Log In</button>
+        <Link to="/auth/Login" className="btn btn-primary px-10">
+          Log In
+        </Link>
       </div>
     </div>
   );
