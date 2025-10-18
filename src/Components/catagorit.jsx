@@ -19,7 +19,7 @@ const Catagorit = () => {
                             {catagori.name}
                         </NavLink>
                     )
-                }
+                }z
             </div>
         </div>
     );
