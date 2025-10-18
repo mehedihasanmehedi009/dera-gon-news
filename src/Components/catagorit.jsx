@@ -11,7 +11,7 @@ const Catagorit = () => {
           <NavLink
             key={catagori.id}
             className={
-              " btn bg-base-100 border-0 hover:bg-base-200  text-{20px} font-semibold"
+              "  btn bg-base-100 border-0 hover:bg-base-200  text-{20px} font-semibold"
             }
             to={`/Catagory/${catagori.id}`}
           >
