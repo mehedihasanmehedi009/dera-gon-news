@@ -1,9 +1,11 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Catagorit from "../catagorit";
 
 const LeftAside = () => {
   return <div>
-     <Catagorit></Catagorit>
+     <Suspense fallback={<span className="loading loading-dots loading-xl"></span>}>
+      <Catagorit></Catagorit>
+     </Suspense>
   </div>;
 };
 
