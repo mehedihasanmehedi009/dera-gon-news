@@ -1,9 +1,10 @@
 import React from 'react';
-import { useParams } from 'react-router';
+import { useLoaderData, useParams } from 'react-router';
 
 const CatagorysNews = () => {
-    const obj = useParams()
-    console.log(obj)
+    const {id} = useParams()
+    const data = useLoaderData()
+    console.log(id,data)
     return (
         <div>
         this is home New
