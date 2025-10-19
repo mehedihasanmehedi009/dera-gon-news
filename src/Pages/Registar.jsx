@@ -1,7 +1,9 @@
-import React from "react";
+import React, { use } from "react";
 import { Link } from "react-router";
+import { AuthContext } from "../provider/Authprovider";
 
 const Registar = () => {
+  const {creatuser,setUser}= use(AuthContext)
   const handelregistar = (e) => {
     e.preventDefault();
     // console.log("mehedi")
@@ -11,6 +13,15 @@ const Registar = () => {
     const password = e.target.password.value;
 
     console.log({ name, photo, email, password });
+    creatuser(email,password)
+    .then((res)=>{
+      console.log(res.user)
+      setUser(res.user)
+    })
+   .catch((error) => {
+    const errorMessage = error.message;
+    alert(errorMessage)
+  });
   };
 
   return (
