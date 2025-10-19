@@ -2,24 +2,64 @@ import React from "react";
 import { Link } from "react-router";
 
 const Registar = () => {
+  const handelregistar = (e) => {
+    e.preventDefault();
+    // console.log("mehedi")
+    const name = e.target.name.value;
+    const photo = e.target.photo.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    console.log({ name, photo, email, password });
+  };
+
   return (
     <div className="flex  justify-center items-center min-h-screen ">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-        <div className="card-body">
+        <form onSubmit={handelregistar} className="card-body">
           <h1 className="text-3xl text-center font-bold">
             Register your account
           </h1>
           <fieldset className="fieldset">
             <label className="label">Your Name</label>
-            <input type="text" className="input" placeholder="Name" />
+            <input
+              type="text"
+              name="name"
+              className="input"
+              placeholder="Name"
+              required
+            />
             <label className="label">Photo URL</label>
-            <input type="Photo" className="input" placeholder="Photo URL" />
+            <input
+              type="Photo"
+              name="photo"
+              className="input"
+              placeholder="Photo URL"
+              required
+              
+              />
             <label className="label">Email</label>
-            <input type="email" className="input" placeholder="Email" />
+            <input
+              type="email"
+              name="email"
+              className="input"
+              placeholder="Email"
+              required
+
+            />
             <label className="label">Password</label>
-            <input type="password" className="input" placeholder="Password" />
+            <input
+              type="password"
+              name="password"
+              className="input"
+              placeholder="Password"
+              required
+
+            />
             <p>Accept Term & Conditions</p>
-            <button className="btn btn-neutral mt-4">Login</button>
+            <button type="submit" className="btn btn-neutral mt-4">
+              Login
+            </button>
           </fieldset>
           <Link to="/auth/Login" className="text-center font-bold">
             Allready Have An Account ?{" "}
@@ -28,7 +68,7 @@ const Registar = () => {
               Log In
             </span>
           </Link>
-        </div>
+        </form>
       </div>
     </div>
   );
