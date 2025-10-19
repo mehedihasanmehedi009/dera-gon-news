@@ -3,9 +3,11 @@ import { FaEye } from "react-icons/fa";
 import { FaStar } from "react-icons/fa6";
 import { CiBookmark } from "react-icons/ci";
 import { FaShareAlt } from "react-icons/fa";
+import { Link } from "react-router";
+ 
 
 const NewsCard = ({ New }) => {
-  const { title, author, thumbnail_url, details, rating, total_view, tags } =
+  const { id,title, author, thumbnail_url, details, rating, total_view, tags } =
     New;
 
   return (
@@ -47,9 +49,9 @@ const NewsCard = ({ New }) => {
         <p className="text-gray-700 text-sm mb-4">
           {details.length > 180 ? details.slice(0, 180) + "..." : details}
         </p>
-        <button className="text-primary font-semibold hover:underline">
+        <Link to={`/news-details/${id}`} className="text-primary font-semibold hover:underline">
           Read More
-        </button>
+        </Link>
       </div>
 
       {/* Footer */}
