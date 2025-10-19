@@ -25,9 +25,9 @@ const LogIn = () => {
           <h1 className="text-3xl text-center font-bold">Login your account</h1>
           <fieldset className="fieldset">
             <label className="label">Email</label>
-            <input type="email" className="input" placeholder="Email" />
+            <input type="email" name="email" className="input" placeholder="Email" />
             <label className="label">Password</label>
-            <input type="password" className="input" placeholder="Password" />
+            <input type="password" name="password" className="input" placeholder="Password" />
             <div>
               <a className="link link-hover">Forgot password?</a>
             </div>
