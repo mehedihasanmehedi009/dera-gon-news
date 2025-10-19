@@ -1,10 +1,27 @@
+import { use } from "react";
 import { Link } from "react-router";
+import { AuthContext } from "../provider/Authprovider";
 
 const LogIn = () => {
+    const { Login } = use(AuthContext)
+  const hanedelLogin = e =>{
+     e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log({  email, password });
+    Login(email,password)
+    .then((res)=>{
+      console.log(res.user)
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
+     
+  }
   return (
     <div className="flex  justify-center items-center min-h-screen ">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-        <div className="card-body">
+        <form onSubmit={hanedelLogin} className="card-body">
           <h1 className="text-3xl text-center font-bold">Login your account</h1>
           <fieldset className="fieldset">
             <label className="label">Email</label>
@@ -23,7 +40,7 @@ const LogIn = () => {
               Register
             </span>
           </Link>
-        </div>
+        </form>
       </div>
     </div>
   );

@@ -4,10 +4,19 @@ import Img from "../../src/assets/user.png";
 import { AuthContext } from "../provider/Authprovider";
 
 const Navear = () => {  
-  const{user}=use(AuthContext)
+  const{users ,SinOut}=use(AuthContext)
+
+  const hendel = () =>{
+    SinOut().then(()=>{
+      alert("Log out Succseful")
+    })
+    .catch((error)=>{
+        console.log(error)
+  })
+}
   return (
     <div className="flex justify-between  mx-auto  items-center p-7">
-      <div className="">{user && user.email}</div>
+      <div className="">{users && users.email}</div>
       <div className="nav flex gap-5 text-accent">
         <NavLink to="/">Home</NavLink>
         <NavLink to="/about">About</NavLink>
@@ -15,9 +24,13 @@ const Navear = () => {
       </div>
       <div className=" flex gap-3">
         <img src={Img} alt="" />
-        <Link to="/auth/Login" className="btn btn-primary px-10">
+         {
+          users?      <Link  onClick={hendel} className="btn btn-primary px-10">
+          Log Out
+        </Link> :<Link to="/auth/Login" className="btn btn-primary px-10">
           Log In
         </Link>
+         }
       </div>
     </div>
   );
