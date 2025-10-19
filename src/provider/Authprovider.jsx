@@ -11,13 +11,16 @@ export const AuthContext = createContext();
 
 const Authprovider = ({ children }) => {
   const [users, setUser] = useState(null);
-    const [loding, setLoding] = useState(true);
+    const [loding, setLoding] = useState(true); 
+    // console.log(loding,users)
 
   const creatuser = (email, password) => {
+      setLoding(true)
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  const Login = (email, password) => {
+  const Login = (email, password) => { 
+    setLoding(true)
     return signInWithEmailAndPassword(auth, email, password);
   };
 

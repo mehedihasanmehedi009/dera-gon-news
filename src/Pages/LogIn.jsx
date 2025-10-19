@@ -1,9 +1,12 @@
 import { use } from "react";
-import { Link } from "react-router";
+import { Link, Navigate, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../provider/Authprovider";
 
 const LogIn = () => {
     const { Login } = use(AuthContext)
+    const loaction= useLocation()
+    const Navigate = useNavigate()
+    console.log(loaction)
   const hanedelLogin = e =>{
      e.preventDefault();
     const email = e.target.email.value;
@@ -12,6 +15,7 @@ const LogIn = () => {
     Login(email,password)
     .then((res)=>{
       console.log(res.user)
+      Navigate(`${loaction.state? loaction.state : "/"}`)
     })
     .catch((error)=>{
       console.log(error)
