@@ -1,4 +1,4 @@
-import React from "react";
+ 
 import { FaEye } from "react-icons/fa";
 import { FaStar } from "react-icons/fa6";
 import { CiBookmark } from "react-icons/ci";
@@ -7,8 +7,7 @@ import { Link } from "react-router";
  
 
 const NewsCard = ({ New }) => {
-  const { id,title, author, thumbnail_url, details, rating, total_view, tags } =
-    New;
+  const { id, title, author, thumbnail_url, details, rating, total_view } = New;
 
   return (
     <div className="card bg-base-100 shadow-md rounded-lg overflow-hidden border border-base-300">
@@ -28,8 +27,8 @@ const NewsCard = ({ New }) => {
           </div>
         </div>
         <button className=" flex gap-2 ">
-          <CiBookmark/>
-          <FaShareAlt/>
+          <CiBookmark />
+          <FaShareAlt />
         </button>
       </div>
       <div className="p-4">
@@ -46,10 +45,18 @@ const NewsCard = ({ New }) => {
 
       {/* Title & Details */}
       <div className="p-4">
-        <p className="text-gray-700 text-sm mb-4">
-          {details.length > 180 ? details.slice(0, 180) + "..." : details}
-        </p>
-        <Link to={`/news-details/${id}`} className="text-primary font-semibold hover:underline">
+       
+       <p className="text-gray-700 text-sm mb-4">
+  {typeof details === "string"
+    ? details.length > 180
+      ? details.slice(0, 180) + "..."
+      : details
+    : "No details available"}
+</p>
+        <Link
+          to={`/news-details/${id}`}
+          className="text-primary font-semibold hover:underline"
+        >
           Read More
         </Link>
       </div>
